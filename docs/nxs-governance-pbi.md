@@ -1,36 +1,55 @@
 # Nexus Ligas - Governança Power BI
 
+## Sumário da Documentação
+
+- [Arquitetura de Dados](architecture/README.md)
+  - [Fonte de Dados](source.md)
+  - [Camada Bronze](bronze.md)
+  - [Camada Silver](silver.md)
+  - [Camada Gold](gold.md)
+  - [Publicação](publish.md)
+- [Requisitos](requirements/README.md)
+- [User Stories](user%20stories/README.md)
+
 ## Arquitetura de Dados
 
 ```mermaid
 flowchart TD
+    %% High contrast grayscale theme
+    classDef source fill:#f9f9f9,stroke:#000000,stroke-width:2px
+    classDef bronze fill:#e0e0e0,stroke:#000000,stroke-width:2px
+    classDef silver fill:#c0c0c0,stroke:#000000,stroke-width:2px
+    classDef gold fill:#909090,stroke:#000000,stroke-width:2px
+    classDef publish fill:#606060,stroke:#000000,stroke-width:2px
+    classDef users fill:#303030,stroke:#000000,stroke-width:2px,color:#ffffff
+
     subgraph Fonte["Fonte de Dados"]
         DS[(Datasul Progress)]
+        class DS source
     end
 
     subgraph Bronze["Camada Bronze"]
         SQLServer[(SQL Server)]
-        style SQLServer fill:#cd7f32
+        class SQLServer bronze
         DS --> SQLServer
     end
 
     subgraph Silver["Camada Silver"]
         DW[("Data Warehouse\nModelo Dimensional")]
-        style DW fill:#c0c0c0
+        class DW silver
         SQLServer --> DW
     end
 
     subgraph Gold["Camada Gold"]
         SM["Modelo Semântico\nPower BI"]
-        style SM fill:#ffd700
+        class SM gold
         DW --> SM
     end
 
     subgraph Publicacao["Publicação"]
         WS["Workspace\nPower BI Service"]
         APP["App\nBase Única"]
-        style WS fill:#9932cc
-        style APP fill:#ffa500
+        class WS,APP publish
         SM --> WS
         WS --> APP
     end
@@ -39,6 +58,7 @@ flowchart TD
         UN["Usuários\nde Negócio"]
         UA["Usuários\nAnalistas"]
         UT["Usuários\nTI"]
+        class UN,UA,UT users
         APP --> UN
         APP --> UA
         WS --> UT
