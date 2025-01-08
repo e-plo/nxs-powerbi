@@ -15,13 +15,13 @@
 
 ```mermaid
 flowchart TD
-    %% High contrast grayscale theme with black text
-    classDef source fill:#f9f9f9,stroke:#000000,stroke-width:2px,color:#000000
-    classDef bronze fill:#e0e0e0,stroke:#000000,stroke-width:2px,color:#000000
-    classDef silver fill:#c0c0c0,stroke:#000000,stroke-width:2px,color:#000000
-    classDef gold fill:#909090,stroke:#000000,stroke-width:2px,color:#000000
-    classDef publish fill:#606060,stroke:#000000,stroke-width:2px,color:#000000
-    classDef users fill:#303030,stroke:#000000,stroke-width:2px,color:#000000
+    %% High contrast light theme for better visibility
+    classDef source fill:#ffffff,stroke:#000000,stroke-width:2px,color:#000000
+    classDef bronze fill:#f5f5f5,stroke:#000000,stroke-width:2px,color:#000000
+    classDef silver fill:#ececec,stroke:#000000,stroke-width:2px,color:#000000
+    classDef gold fill:#e0e0e0,stroke:#000000,stroke-width:2px,color:#000000
+    classDef publish fill:#d3d3d3,stroke:#000000,stroke-width:2px,color:#000000
+    classDef users fill:#c0c0c0,stroke:#000000,stroke-width:2px,color:#000000
 
     subgraph Fonte["Fonte de Dados"]
         DS[(Datasul Progress)]
@@ -65,7 +65,7 @@ flowchart TD
     end
 
     %% Style for subgraph titles
-    classDef subgraphStyle fill:none,stroke:none,color:black
+    classDef subgraphStyle fill:none,stroke:none,color:#ffffff
     class Fonte,Bronze,Silver,Gold,Publicacao,Usuarios subgraphStyle
 ```
 
