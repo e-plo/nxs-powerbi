@@ -1,0 +1,62 @@
+{% extends "/apps/nxs-powerbi/templates/base-layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block page_title %}Dashboard Executivo{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Quick Links -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold text-purple-700 mb-4">Visão Rápida</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-purple-50 rounded-lg">
+                    <div class="text-sm text-gray-600">Volume Total MTD</div>
+                    <div class="text-2xl font-bold text-purple-700">1,525t</div>
+                    <div class="text-sm text-green-600">102% Atingimento</div>
+                </div>
+                <div class="p-4 bg-orange-50 rounded-lg">
+                    <div class="text-sm text-gray-600">Carteira</div>
+                    <div class="text-2xl font-bold text-orange-600">2,500t</div>
+                    <div class="text-sm text-gray-600">Próximos 30 dias</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Updates -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold text-purple-700 mb-4">Últimas Atualizações</h2>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div>
+                        <div class="text-sm font-medium">Upload Datasul</div>
+                        <div class="text-xs text-gray-500">Hoje 08:00</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div>
+                        <div class="text-sm font-medium">Atualização KPIs</div>
+                        <div class="text-xs text-gray-500">Hoje 08:15</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold text-purple-700 mb-4">Ações Rápidas</h2>
+            <div class="space-y-3">
+                <button class="w-full p-3 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors text-left">
+                    Atualizar Dados
+                </button>
+                <button class="w-full p-3 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition-colors text-left">
+                    Exportar Relatório
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

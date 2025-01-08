@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - Visão Consolidada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-white shadow-lg">
+            <!-- Logo/Brand -->
+            <div class="p-4 border-b">
+                <h1 class="text-xl font-bold text-purple-700">Nexus Dashboard</h1>
+                <p class="text-sm text-gray-600">Governança Power BI</p>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-2">
+                <div class="text-xs font-semibold text-gray-400 uppercase mb-4">Dashboards</div>
+                
+                <a href="dashboard-sales.html" class="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Visão Consolidada
+                </a>
+                
+                <a href="dashboard-units.html" class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Visão por Unidade
+                </a>
+                
+                <a href="dashboard-clients.html" class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Visão Clientes
+                </a>
+                
+                <a href="dashboard-products.html" class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
+                    Visão Ligas
+                </a>
+                
+                <a href="dashboard-client-product.html" class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    Matriz Cliente x Liga
+                </a>
+  
+                <div class="text-xs font-semibold text-gray-400 uppercase mt-8 mb-4">Configurações</div>
+                
+                <a href="settings.html" class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Configurações
+                </a>
+            </nav>
+  
+            <!-- User Info -->
+            <div class="border-t p-4 mt-auto">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-gray-700">Admin</div>
+                        <div class="text-xs text-gray-500">Último acesso: 10/12</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+  
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-orange-500 p-4">
+                <div class="flex items-center justify-between max-w-7xl mx-auto">
+                    <h1 class="text-white text-2xl font-bold">Visão Consolidada</h1>
+                    <div class="flex gap-2">
+                        <select class="text-sm px-2 py-1 rounded bg-white/90" id="monthSelect">
+                            <option>Dezembro</option>
+                            <option>Novembro</option>
+                        </select>
+                        <select class="text-sm px-2 py-1 rounded bg-white/90" id="yearSelect">
+                            <option>2024</option>
+                            <option>2023</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+  
+            <!-- Dashboard Content -->
+            <div class="p-6">
+                <div class="max-w-7xl mx-auto">
+                    <!-- KPIs Row -->
+                    <div class="grid grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-600">Volume Total</div>
+                            <div class="text-2xl font-bold text-purple-700">1,525t</div>
+                            <div class="text-sm text-green-600">102% MTD</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-600">Média Diária</div>
+                            <div class="text-2xl font-bold text-purple-700">190t</div>
+                            <div class="text-sm text-orange-600">Meta: 185t</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-600">Melhor Dia</div>
+                            <div class="text-2xl font-bold text-purple-700">215t</div>
+                            <div class="text-sm text-gray-600">Dia 04</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-600">Projeção Mês</div>
+                            <div class="text-2xl font-bold text-purple-700">4,200t</div>
+                            <div class="text-sm text-green-600">101% Meta</div>
+                        </div>
+                    </div>
+  
+                    <!-- Charts Row -->
+                    <div class="space-y-6">
+                        <!-- Daily Evolution -->
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-lg font-semibold text-purple-700 mb-4">Evolução de Vendas - Diária</h2>
+                            <div class="h-80">
+                                <canvas id="dailyChart"></canvas>
+                            </div>
+                        </div>
+  
+                        <!-- Accumulated Evolution -->
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-lg font-semibold text-purple-700 mb-4">Evolução de Vendas - Acumulado</h2>
+                            <div class="h-80">
+                                <canvas id="accChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+  
+    <script>
+        // Data
+        const dailyData = {
+            labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
+            datasets: [{
+                label: 'MRF',
+                data: [180, 200, 190, 210, 205, 150, 0, 185, 195, 205],
+                borderColor: '#6B46C1',
+                tension: 0.1
+            }, {
+                label: 'Realizado',
+                data: [175, 205, 185, 215, 200, 145, 0, 190, 188, 208],
+                borderColor: '#DD6B20',
+                tension: 0.1
+            }]
+        };
+  
+        // Calculate accumulated data
+        const accData = {
+            labels: dailyData.labels,
+            datasets: [{
+                label: 'MRF Acumulado',
+                data: dailyData.datasets[0].data.reduce((acc, curr) => {
+                    const prev = acc.length > 0 ? acc[acc.length - 1] : 0;
+                    acc.push(prev + curr);
+                    return acc;
+                }, []),
+                borderColor: '#6B46C1',
+                tension: 0.1
+            }, {
+                label: 'Realizado Acumulado',
+                data: dailyData.datasets[1].data.reduce((acc, curr) => {
+                    const prev = acc.length > 0 ? acc[acc.length - 1] : 0;
+                    acc.push(prev + curr);
+                    return acc;
+                }, []),
+                borderColor: '#DD6B20',
+                tension: 0.1
+            }]
+        };
+  
+        // Chart configuration
+        const chartConfig = {
+            type: 'line',
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + 't';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Toneladas'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Dia'
+                        }
+                    }
+                }
+            }
+        };
+  
+        // Create charts
+        window.onload = function() {
+            const dailyChart = new Chart(
+                document.getElementById('dailyChart'),
+                {
+                    ...chartConfig,
+                    data: dailyData
+                }
+            );
+  
+            const accChart = new Chart(
+                document.getElementById('accChart'),
+                {
+                    ...chartConfig,
+                    data: accData
+                }
+            );
+  
+            // Add event listeners for filters
+            document.getElementById('monthSelect').addEventListener('change', updateCharts);
+            document.getElementById('yearSelect').addEventListener('change', updateCharts);
+        };
+  
+        function updateCharts() {
+            console.log('Updating charts...');
+        }
+    </script>
+</body>
+</html>
